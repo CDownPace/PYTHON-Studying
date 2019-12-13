@@ -749,6 +749,7 @@ egg.weapon.prick()
 
 > 面向对象编程三大特点
 * 继承
+* 多态
 #### 继承是一种创建新类的方式，在python中，新建的类可以继承一个或多个父类，父类又可称为基类或超类，新建的类称为派生类或子类
 ```python
  #python中类的继承分为：单继承和多继承
@@ -817,4 +818,55 @@ c2.drink()
 
 d1 = Dog('胖子家的小瘦狗')
 d1.eat()
+```
+
+### 继承  继承自一个类
+```python
+#多态代码的实现
+class Animal(object):
+    eyes=2
+    def __init__(self,kind,name):
+        self.kind=kind
+        self.name=name
+
+    def run(self):
+        print('In class Animal,'+self.name+' is running. ')
+
+class Cat(Animal):
+    def eat(self):
+        print('Cat eatting.')
+    def run(self):
+        print('In class Cat,'+self.name+'is running.')
+
+cat=Cat('cat','Kitty')
+cat.run()
+```
+
+```python
+#继承    继承自多个类       若各个类有同一属性，那选择先继承的类
+class Animal(object):
+    eyes=2
+    def __init__(self,kind,name):
+        self.kind=kind
+        self.name=name
+
+    def run(self):
+        print('In class Animal,'+self.name+' is running.')
+
+class Cat(Animal):
+    def eat(self):
+        print('Cat eatting.')
+    def run(self):
+        print('In class Cat,'+self.name+'is running.')
+class Dog(Animal):
+    def run(self):
+        print('In class Dog,'+self.name+'is running.')
+
+class CatDog(Cat,Dog):
+    pass
+
+cd=CatDog('catdog','C&D')
+cd.run()
+cat=Cat('cat','Kitty')
+cat.run()
 ```
