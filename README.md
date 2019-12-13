@@ -14,6 +14,7 @@
 * 变量
 * 面向对象
 * 捕获异常
+* 读写文件
 *以下分别介绍这几个方面*
 ## 数字
 
@@ -912,4 +913,35 @@ else:
     print('no exception')
 finally:
     file1.close()
+```
+## 读写文件
+> 读文件
+```js
+>>>f1=open(r'F:\temp\users.txt)
+>>>lines=f1.readlines()
+>>>lines
+>>>f1.close()
+目录前的r表示不转义
+```
+
+> 写文件    文件之前的内容会被覆盖
+```js
+>>>f2=open(r'F:\temp\users.txt,'w')
+>>>f2.write('6842')
+>>>f2.close()
+```
+
+```js
+writelines 每一行作为一个列表
+>>>f3=open(r'F:\temp\users.txt','w')
+>>>lines=['a\n','b\n','c\n']
+>>>f3.writelines(lines)
+>>>f3.close()
+```
+
+```js
+a 表示追加到文件后面
+>>>f4=open(r'F:\temp\users.txt','a')
+>>>f4.writelines(lines)
+>>>f4.close()
 ```
