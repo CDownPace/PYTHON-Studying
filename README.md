@@ -13,6 +13,7 @@
 * 参数
 * 变量
 * 面向对象
+* 捕获异常
 *以下分别介绍这几个方面*
 ## 数字
 
@@ -869,4 +870,46 @@ cd=CatDog('catdog','C&D')
 cd.run()
 cat=Cat('cat','Kitty')
 cat.run()
+```
+### 捕获异常
+> try...except... 捕获单个异常
+   * 可能产生错误的代码放在try中
+   * 产生错误后要做的处理放到except中
+```python
+try:
+    file1=open('test.txt','r')
+#r表示只读
+    print ('filel is open')
+except （IOError，NameError):
+    print ('file not exist')
+```
+
+```python
+#这样就可以显示出错误
+try:
+    file1=open('test.txt','r')
+    print ('file1 is open')
+except IOError as result:
+    print (result)
+```
+> 捕获多个异常
+   * 多个异常之间用逗号隔开
+```
+try:
+    file1=open('test.txt','r')
+    print ('file1 is open')
+except Exception as result:
+    print (result)
+```
+> 无论是否异常都运行
+```python
+try:
+    file1=open('test.txt','r')
+    print ('file1 is open')
+except Exception as result:
+    print (result)
+else:
+    print('no exception')
+finally:
+    file1.close()
 ```
